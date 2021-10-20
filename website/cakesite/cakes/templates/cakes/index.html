@@ -1,0 +1,9 @@
+{% if latest_cakes_list %}
+    <ul>
+    {% for cake in latest_cakes_list %}
+        <li><a href="{% url 'cakes:detail' cake.id %}">{{ cake.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

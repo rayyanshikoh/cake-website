@@ -1,0 +1,25 @@
+<html>
+{% block content %}
+
+<form action="comporder" method="Post">
+    {% csrf_token %} 
+    <fieldset>
+        <legend>form</legend>
+        <div class="form-group">
+            <label for="exampleTextarea" class="form-label mt-4">email ID</label>
+            <textarea class="form-control" id="exampleTextarea" name="email_id" rows="1"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea" class="form-label mt-4">Number</label>
+            <textarea class="form-control" id="exampleTextarea" name="number" rows="1"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea" class="form-label mt-4">Name</label>
+            <textarea class="form-control" id="exampleTextarea" name="name" rows="1"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>
+
+{% endblock %} 
+</html>

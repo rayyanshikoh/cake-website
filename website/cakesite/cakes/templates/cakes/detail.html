@@ -1,0 +1,4 @@
+<h1>{{ cake.name }}</h1>
+<h2>Price: ${{ cake.price }}</h2>
+<h3>Date Published: {{ cake.pub_date }}</h3>
+<a href="{% url 'cakes:order' cake.id %}">Order {{ cake.name }} here</a>
