@@ -1,4 +1,68 @@
-<h1>{{ cake.name }}</h1>
-<h2>Price: ${{ cake.price }}</h2>
-<h3>Date Published: {{ cake.pub_date }}</h3>
-<a href="{% url 'cakes:order' cake.id %}">Order {{ cake.name }} here</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet"  href="{%  static  'style.css'  %}">
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Rayyan's Cakes</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'cakes:index' %}">Cakes
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <img src="{% get_static_prefix %}cakes/birthday.jpeg" alt="banner image of a cake" style="width: 100%;">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8">
+                <h1 style="text-align: center;">{{ cake.name }}</h1>
+                <div class="container">
+                    <div class="row">
+                        <img src="{% get_static_prefix %}cakes/{{ cake.picture_name }}.jpg" alt="" style="border-radius: 10%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-8">
+                        <div class="container">
+                            <div class="row">
+                                <h2>Price: ${{ cake.price }}</h2>
+                                <p>Date Published: {{ cake.pub_date }}</p>
+                                <p>{{ cake.description }}</p>
+                                <a href="{% url 'cakes:order' cake.id %}", style="text-align: center;">Order {{ cake.name }} Now!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</body>
+</html>

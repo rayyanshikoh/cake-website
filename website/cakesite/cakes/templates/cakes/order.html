@@ -1,25 +1,66 @@
-<html>
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet"  href="{%  static  'style.css'  %}">
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Rayyan's Cakes</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'cakes:index' %}">Cakes
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <img src="{% get_static_prefix %}cakes/birthday.jpeg" alt="banner image of a cake" style="width: 100%;">
+  </div>
 
-<form action="comporder" method="Post">
-    {% csrf_token %} 
-    <fieldset>
-        <legend>form</legend>
-        <div class="form-group">
-            <label for="exampleTextarea" class="form-label mt-4">email ID</label>
-            <textarea class="form-control" id="exampleTextarea" name="email_id" rows="1"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleTextarea" class="form-label mt-4">Number</label>
-            <textarea class="form-control" id="exampleTextarea" name="number" rows="1"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleTextarea" class="form-label mt-4">Name</label>
-            <textarea class="form-control" id="exampleTextarea" name="name" rows="1"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-    </fieldset>
-</form>
-
-{% endblock %} 
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form action="comporder" method="Post">
+          {% csrf_token %} 
+          <fieldset>
+              <legend>Order Form for {{ cake.name }}</legend>
+              <div class="form-group">
+                  <label for="exampleTextarea" class="form-label mt-4">email ID</label>
+                  <textarea class="form-control" id="exampleTextarea" name="email_id" rows="1"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleTextarea" class="form-label mt-4">Number</label>
+                  <textarea class="form-control" id="exampleTextarea" name="number" rows="1"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleTextarea" class="form-label mt-4">Name</label>
+                  <textarea class="form-control" id="exampleTextarea" name="name" rows="1"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
