@@ -1,4 +1,2 @@
-Order_Num,Cake,Name,Email,Phone
-3703,confetti,rayyan,rayyanshikoh5@gmail.com,0505251175
-3543,free cake,Rayyan,rayyanshikoh5@gmail.com,0505767
-9488,Chocolate Cake,Rayyan Shikwah,rayyanshikoh5@gmail.com,0563397362
+Order_Num,Cake,Name,Email,Phone,Datetime
+1930,Strawberry Cake,Rayyan Shikoh,rayyanshikoh@icloud.com,0505251175,2021-10-31 05:33:25.743733

@@ -7,10 +7,10 @@ from django.template import loader
 from django.core.mail import send_mail
 from cakesite.settings import EMAIL_HOST_USER
 import random
-
+from datetime import datetime
 from .fileprep import deleter, new_writer
 
-header = ("Order_Num", "Cake", "Name", "Email", "Phone")
+header = ("Order_Num", "Cake", "Name", "Email", "Phone", "Datetime")
 # Create your views here.
 
 def index(request):
@@ -46,7 +46,9 @@ def comporder(request, cake_id):
     print(f"{name} ordered {cake} with the email {email_id}, order number: {order_num}")
     try:
         print("Attempting to add to CSV file")
-        new_writer(filename, header, name=name, email=email_id, phone=number, cake=cake, order_num=order_num)
+        now = datetime.now()
+        now = str(now)
+        new_writer(filename, header, name=name, email=email_id, phone=number, cake=cake, order_num=order_num, datetime=now)
         print("Successfully Added")
         try:
             print("Attempting to send email")

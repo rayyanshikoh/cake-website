@@ -1,6 +1,7 @@
-import csv 
+import csv
+from datetime import datetime 
 filename = "orders.csv"
-header = ("Order_Num", "Cake", "Name", "Email", "Phone")
+header = ("Order_Num", "Cake", "Name", "Email", "Phone", "Datetime")
 data = [
 ('3703', 'confetti', 'rayyan', 'rayyanshikoh5@gmail.com', '0505251175')
 ]
@@ -13,10 +14,10 @@ def writer(header, data, filename):
       movies.writerow(x)
 
 
-def new_writer(filename, header, name, email, phone, cake, order_num):
+def new_writer(filename, header, name, email, phone, cake, order_num, datetime):
     with open (filename, "a", newline='') as csvfile:
         writer = csv.DictWriter(csvfile, header, extrasaction='ignore')
-        writer.writerow({'Name': name, 'Email': email, 'Phone': phone, 'Cake': cake, 'Order_Num': order_num})
+        writer.writerow({'Name': name, 'Email': email, 'Phone': phone, 'Cake': cake, 'Order_Num': order_num, 'Datetime':datetime})
 
 # def deleter(filename, errorrow):
 #     lines = []
@@ -41,4 +42,4 @@ def deleter(filename, errorrow):
 
 
 writer(header, data, filename)
-new_writer(filename, header, name="Rayyan", email="rayyanshikoh5@gmail.com", phone="0505767", cake="free cake", order_num='3543')
+new_writer(filename, header, name="Rayyan", email="rayyanshikoh5@gmail.com", phone="0505767", cake="free cake", order_num='3543', datetime=datetime)
